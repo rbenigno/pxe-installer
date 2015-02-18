@@ -1,0 +1,16 @@
+DEFAULT menu.c32
+MENU TITLE Boot Menu
+NOHALT 1
+PROMPT 0
+TIMEOUT 80
+LABEL 1
+ MENU LABEL ^1) Boot from local disk
+ LOCALBOOT 0x80
+LABEL 2
+ MENU LABEL 2) ESXi-5.5u2-Cisco Installer
+ KERNEL esxi_5.5u2_cisco/mboot.c32
+ APPEND -c esxi_5.5u2_cisco/boot.cfg
+LABEL 3
+ MENU LABEL 3) Ubuntu 14.04 Server (64-bit)
+ KERNEL http://<HTTP_HOST>/ubuntu-14.04-srv/install/netboot/ubuntu-installer/amd64/linux
+ APPEND auto=false priority=critical vga=788 initrd=http://<HTTP_HOST>/ubuntu-14.04-srv/install/netboot/ubuntu-installer/amd64/initrd.gz locale=en_US.UTF-8 kbd-chooser/method=us netcfg/choose_interface=auto mirror/country=manual mirror/http/hostname=<HTTP_HOST> mirror/http/directory=/ubuntu-14.04-srv mirror/http/proxy="" live-installer/net-image=http://<HTTP_HOST>/ubuntu-14.04-srv/install/filesystem.squashfs
