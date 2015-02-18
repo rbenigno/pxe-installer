@@ -37,9 +37,6 @@ sed -e "s/\//http:\/\/$HTTP_HOST\/esxi_5.5u2_cisco\//g" -i $BOOTFILES/esxi_5.5u2
 
 ## Extract ISO for Ubuntu 14.04 Server
 7z x -o"$BOOTFILES/ubuntu-14.04-srv" $SRC/ubuntu-14.04.1-server-amd64.iso
-## Fix issue with this media...
-mv $BOOTFILES/ubuntu-14.04-srv/pool/main/l/linux/firewire-core-modules-3.13.0-32-generic-di_3.13.0-32.57_amd64.ude $BOOTFILES/ubuntu-14.04-srv/pool/main/l/linux/firewire-core-modules-3.13.0-32-generic-di_3.13.0-32.57_amd64.udeb
-mv $BOOTFILES/ubuntu-14.04-srv/pool/main/l/linux/pcmcia-storage-modules-3.13.0-32-generic-di_3.13.0-32.57_amd6.ude $BOOTFILES/ubuntu-14.04-srv/pool/main/l/linux/pcmcia-storage-modules-3.13.0-32-generic-di_3.13.0-32.57_amd6.udeb
 
 # Set permissions on our boot folder
 chmod go+rx $(find $BOOTFILES -type d)
