@@ -23,8 +23,6 @@ carried out by the provision.sh script include:
 - Run the provision.sh script
 - Start dnsmasq
 
-[ ] TODO: Start dnsmasq automatically (on boot)
-
 # License
 
 This content is licensed under the MIT License.

@@ -5,9 +5,13 @@ INSTALL_HOST=10.199.199.10
 
 ## Install required packages
 sudo apt-get update -q
-sudo apt-get install -qy nginx syslinux dnsmasq-base p7zip-full
+sudo apt-get install -qy nginx dnsmasq syslinux p7zip-full
 
-## Install nginx config
+## Create provisioning folder
+mkdir $BOOTFILES
+cd $BOOTFILES
+
+## Configure Nginx
 cp $SRC/nginx-default /etc/nginx/sites-available/provisioning
 ln -s /etc/nginx/sites-available/provisioning /etc/nginx/sites-enabled/provisioning
 rm /etc/nginx/sites-enabled/default
@@ -15,6 +19,7 @@ service nginx reload
 
 ## Configure dnsmasq
 cp $SRC/dnsmasq.conf /etc
+service dnsmasq restart
 
 ## Configure NAT
 mv /etc/ufw/before.rules /etc/ufw/before.rules.original
@@ -23,10 +28,6 @@ sed -e "s/DEFAULT_INPUT_POLICY=\"DROP\"/DEFAULT_INPUT_POLICY=\"ACCEPT\"/g" -i /e
 sed -e "s/DEFAULT_FORWARD_POLICY=\"DROP\"/DEFAULT_FORWARD_POLICY=\"ACCEPT\"/g" -i /etc/default/ufw
 sed -e "s/#net\/ipv4\/ip_forward=1/net\/ipv4\/ip_forward=1/g" -i /etc/ufw/sysctl.conf
 ufw disable && sudo ufw --force enable
-
-## Create provisioning folder
-mkdir $BOOTFILES
-cd $BOOTFILES
 
 ## Populate PXE boot files from the packaged syslinux
 cp /usr/lib/syslinux/gpxelinux.0 $BOOTFILES
