@@ -1,5 +1,5 @@
 #!/bin/sh
-SRC=/vagrant/pxe-installer
+SRC=/vagrant/pxe-installer/files
 BOOTFILES=/provisioning
 INSTALL_HOST=10.199.199.10
 
