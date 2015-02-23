@@ -1,6 +1,0 @@
-dnsmasq --interface=eth1 \
-        --dhcp-range=10.199.199.100,10.199.199.200,255.255.255.0,1h \
-        --dhcp-option=3,10.199.199.10 \
-        --dhcp-option=option:dns-server,10.199.199.10 \
-        --pxe-service=x86PC,"PXE",gpxelinux \
-        --enable-tftp --tftp-root=/provisioning/ --no-daemon

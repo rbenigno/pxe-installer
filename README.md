@@ -16,12 +16,11 @@ carried out by the provision.sh script include:
 
 - Add Ubuntu 14.04 Server ISO (configured for: ubuntu-14.04.1-server-amd64.iso)
 - Add ESXi 5.5 ISO (configured for: Vmware-ESXi-5.5.0-2068190-custom-Cisco-5.5.2.2.iso)
-- Edit the provision.sh to work with your ISO names and extraction folders
-- Edit pxelinux.cfg/default for your installers
-- Edit the provision.sh script with your server's IP address
+- Edit the provision.sh to work with your ISO names and any extraction folders
+- Edit boot.ipxe for your installers
+- Edit the provision.sh script with your install environment
 - Edit dnsmasq.conf with interface and DHCP range
 - Run the provision.sh script
-- Start dnsmasq
 
 # License
 
